@@ -6,6 +6,7 @@ package com.hexaware.cms.service;
  */
 import java.util.List;
 
+import com.hexaware.cms.dto.CountDTO;
 import com.hexaware.cms.dto.PlayerDTO;
 import com.hexaware.cms.entity.Player;
 
@@ -16,5 +17,6 @@ public interface IPlayerService {
    public Player updatePlayer(Player player);
    public String deletePlayerById(int playerId);
    public int updateTotalMatches(int playerId,int totalMatches);
+   public List<CountDTO> getByTotalMathes();
    
 }

@@ -1,4 +1,5 @@
 package com.hexaware.cms.service;
+import java.util.ArrayList;
 /*
  * Author: RAJESHWARI
  * Description : Service Implementation for Player Interface 
@@ -9,6 +10,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hexaware.cms.dto.CountDTO;
 import com.hexaware.cms.dto.PlayerDTO;
 import com.hexaware.cms.dto.PlayerDTO.Role;
 import com.hexaware.cms.entity.Player;
@@ -32,11 +34,8 @@ public class PlayerServiceImp implements IPlayerService {
 //		newPlayer.setPlayerId(player.getPlayerId());
 		newPlayer.setPlayerName(player.getPlayerName());
 		newPlayer.setJerseyNumber(player.getJerseyNumber());
-//		PlayerDTO.Role role=player.getRole();
-//		Player.Role roles=newPlayer.getRole();
-//		newPlayer.setRole(roles.KEEPER);
 		 Player.Role role = Player.Role.valueOf(player.getRole().name());
-		    newPlayer.setRole(role);
+		newPlayer.setRole(role);
 		newPlayer.setTotalMatches(player.getTotalMatches());
 		newPlayer.setTeamName(player.getTeamName());
 		newPlayer.setPlayerName(player.getPlayerName());
@@ -84,6 +83,20 @@ public class PlayerServiceImp implements IPlayerService {
 		else {
 			throw new PlayerNotFoundException("Player is Not Exist for given Player Id "+playerId+" .So can not update total number of matches");
 		}
+	}
+
+	@Override
+	public List<CountDTO>getByTotalMathes() {
+		List<Object[]> results = playerRepository.getbyCountryCount();
+	    List<CountDTO> countDTOList = new ArrayList<>();
+
+	    for (Object[] result : results) {
+	        String countryName = (String) result[0];  // Get country
+	        Long count = (Long) result[1];  // Get count of players
+	        countDTOList.add(new CountDTO( count,countryName));
+	    }
+
+	    return countDTOList;
 	}
 	
 

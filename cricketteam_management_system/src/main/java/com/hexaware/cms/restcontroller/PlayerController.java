@@ -17,9 +17,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hexaware.cms.dto.CountDTO;
 import com.hexaware.cms.dto.PlayerDTO;
 import com.hexaware.cms.entity.Player;
 import com.hexaware.cms.service.IPlayerService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/players")
@@ -35,12 +38,12 @@ public class PlayerController {
 		return playerService.getByPlayer(playerId);
 	}
 	@PostMapping("/insert")
-	public Player addNewPlayer(@RequestBody PlayerDTO playerDto)
+	public Player addNewPlayer(@Valid @RequestBody PlayerDTO playerDto)
 	{
 		return playerService.addNewPlayer(playerDto);
 	}
 	@PutMapping("/update")
-	public Player updatePlayer(@RequestBody Player player)
+	public Player updatePlayer(@Valid @RequestBody Player player)
 	{
 		return playerService.updatePlayer(player);
 	}
@@ -53,7 +56,10 @@ public class PlayerController {
 		return playerService.updateTotalMatches(playerId, totalMatches);
 		
 	}
-
+	@GetMapping("/getByTotalMatches")
+	public List<CountDTO> getByTotalMatches() {
+		return playerService.getByTotalMathes();
+	}
 	
 
 }
