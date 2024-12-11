@@ -47,6 +47,7 @@ export class UpdatePlayerComponent implements OnInit {
           this.isLoading = false;
         },
         (error: any) => {
+          alert("Player Not exist with Given PlayerId");
           console.error('Error updating player:', error);
           this.errorMessage = 'An error occurred while updating the player.';
           this.isLoading = false;

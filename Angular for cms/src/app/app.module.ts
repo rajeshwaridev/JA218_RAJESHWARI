@@ -12,6 +12,7 @@ import { HomeComponent } from './Component/home/home.component';
 import { UpdatePlayerComponent } from './Component/update-player/update-player.component';
 // import { HoverDirective } from './hover.directive';
 import { PlayerService } from './Service/player.service';
+import { DisplayByTotalMatchesComponent } from './Component/display-by-total-matches/display-by-total-matches.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PlayerService } from './Service/player.service';
     DisplayAllPlayersComponent,
     UpdatePlayerComponent,
     DisplayByIdComponent,
-    HomeComponent
+    HomeComponent,
+    DisplayByTotalMatchesComponent
   ],
   imports: [
     BrowserModule,

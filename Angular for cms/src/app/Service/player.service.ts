@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Counter } from 'src/Model/Counter';
 import { Player } from 'src/Model/Player';
 
 @Injectable({
@@ -52,6 +53,12 @@ updatePlayerDetails(player:Player):Observable<Player>{
 
 
   return   this.http.put<Player>(this.baseURL+"update/"+player.playerId , player);
+
+
+}
+getByTotalMatches():Observable<Counter[]>{
+
+  return this.http.get<Counter[]>(this.baseURL+"getByTotalMatches");
 
 
 }

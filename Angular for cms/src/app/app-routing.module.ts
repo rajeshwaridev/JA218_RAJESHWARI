@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddPlayerComponent } from './Component/add-player/add-player.component';
 import { DisplayAllPlayersComponent } from './Component/display-all-players/display-all-players.component';
 import { DisplayByIdComponent } from './Component/display-by-id/display-by-id.component';
+import { DisplayByTotalMatchesComponent } from './Component/display-by-total-matches/display-by-total-matches.component';
 import { HomeComponent } from './Component/home/home.component';
 import { UpdatePlayerComponent } from './Component/update-player/update-player.component';
 
@@ -13,6 +14,8 @@ const routes: Routes = [
   {path:'update',component:UpdatePlayerComponent},
   {path:'insert',component:AddPlayerComponent},
   {path:'getbyplayerid',component:DisplayByIdComponent},
+  {path:'getbytotalmatches',component:DisplayByTotalMatchesComponent},
+
 
 ];
 

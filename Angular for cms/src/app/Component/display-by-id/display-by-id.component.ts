@@ -35,7 +35,9 @@ export class DisplayByIdComponent {
               this.playerList = player;
             },
             error: (err) => {
+           
               this.searchError = err.message; // Display the error message
+           
             }
           });
         }
